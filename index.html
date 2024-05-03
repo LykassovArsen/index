@@ -13,8 +13,8 @@
         justify-content: center;
         align-items: center;
         height: 100vh;
-        background-color: black; /* Черный фон */
-        color: white; /* Белый текст */
+        background-color: black;
+        color: white;
     }
 
     .game-container {
@@ -45,18 +45,18 @@
 </div>
 
 <script>
-    var step = 1; // Переменная для отслеживания текущего шага игры
+    var susget = 1;
 
     function submitAnswer() {
-        var userInput = document.getElementById("userInput").value;
-        var resultText = document.getElementById("result");
-        var questionText = document.getElementById("question");
+        var input = document.getElementById("userInput").value;
+        var result = document.getElementById("result");
+        var question = document.getElementById("question");
         var options = document.getElementById("options");
         var story = document.getElementById("story");
 
-        switch (step) {
+        switch (susget) {
             case 1:
-                switch (userInput) {
+                switch (input) {
                     case "1":
                         story.innerHTML = "<p>Вы старательно вглядываетесь в темноту, однако ничего не видите.</p>";
                         break;
@@ -66,59 +66,59 @@
                         break;
                     case "3":
                         story.innerHTML = "<p>Вы возвращаетесь обратно и проживаете короткую непримечательную жизнь.</p>";
-                        resultText.textContent = "КОНЕЦ ИГРЫ (перезагрузите страницу)";
+                        result.textContent = "КОНЕЦ ИГРЫ (перезагрузите страницу)";
                         break;
                     case "4":
                         story.innerHTML = "<p>Вы побежали вглубь пещеры и разбили голову на ближайшем повороте. Вы так и остались лежать там до конца времен.</p>";
-                        resultText.textContent = "КОНЕЦ ИГРЫ (перезагрузите страницу)";
+                        result.textContent = "КОНЕЦ ИГРЫ (перезагрузите страницу)";
                         break;
                     default:
-                        resultText.textContent = "Некорректный ввод. Пожалуйста, выберите действие от 1 до 4.";
+                        result.textContent = "Некорректный ввод. Пожалуйста, выберите действие от 1 до 4.";
                         return;
                 }
                 break;
             case 2:
-                switch (userInput) {
+                switch (input) {
                     case "1":
                         story.innerHTML = "<p>Вы побежали вглубь пещеры и разбили голову на ближайшем повороте. Вы так и остались лежать там до конца времен.</p>";
-                        resultText.textContent = "КОНЕЦ ИГРЫ (перезагрузите страницу)";
+                        result.textContent = "КОНЕЦ ИГРЫ (перезагрузите страницу)";
                         break;
                     case "2":
                         story.innerHTML = "<p>Вдруг, вы услышали нечеловеческий вопль отдаленно напоминавший человеческий и почувствовали как на вашей шее смыкаются чьи-то холодные руки.</p>";
                         options.innerHTML = "<p>2.2.1: Резко податься вперед</p><p>2.2.2: Резко податься вправо</p><p>2.2.3: Резко податься влево</p>";
                         break;
                     default:
-                        resultText.textContent = "Некорректный ввод. Пожалуйста, выберите действие от 1 до 2.";
+                        result.textContent = "Некорректный ввод. Пожалуйста, выберите действие от 1 до 2.";
                         return;
                 }
                 break;
             case 3:
-                switch (userInput) {
+                switch (input) {
                     case "1":
                         story.innerHTML = "<p>После того, как вы сделали резкий удар наугад в темноте, вы услышали громкий звук. В непроглядной тьме вы почувствовали, как что-то холодное и влажное схватило вас за руку. Вы испуганно отпрянули, но столкнулись лицом к лицу с чудовищным созданием из темноты.</p><p>Бездонные черные глаза смотрели на вас, и вы поняли, что ваш удар не нанес ему никакого вреда. Страх и отчаяние охватили вас, но в этом моменте вы решили воспользоваться последним шансом на спасение. С силой, о которой вы не подозревали, вы вырвались из его хватки и побежали, не оглядываясь.</p><p>Через несколько мгновений вы выбежали из пещеры, дыша свежим воздухом и ощущая, как паника постепенно отступает. Зайдя в деревню вы поняли, что вас уже никто не увидит ........</p>";
-                        resultText.textContent = "ПОБЕДА!";
+                        result.textContent = "ПОБЕДА!";
                         break;
                     case "2":
                         story.innerHTML = "<p>Не сумев убежать от противника, вы встретили свою смерть.</p>";
-                        resultText.textContent = "КОНЕЦ ИГРЫ (перезагрузите страницу)";
+                        result.textContent = "КОНЕЦ ИГРЫ (перезагрузите страницу)";
                         break;
                     case "3":
                         story.innerHTML = "<p>Вы уперлись в стену и не смогли вырваться из мертвой хватки. Теперь вы еще один не вернувшийся.</p>";
-                        resultText.textContent = "КОНЕЦ ИГРЫ (перезагрузите страницу)";
+                        result.textContent = "КОНЕЦ ИГРЫ (перезагрузите страницу)";
                         break;
                     default:
-                        resultText.textContent = "Некорректный ввод. Пожалуйста, выберите действие от 1 до 3.";
+                        result.textContent = "Некорректный ввод. Пожалуйста, выберите действие от 1 до 3.";
                         return;
                 }
                 break;
             default:
-                resultText.textContent = "Игра закончена.";
+                result.textContent = "Игра закончена.";
                 return;
         }
 
-        questionText.textContent = "Выберите действие:";
+        question.textContent = "Выберите действие:";
         document.getElementById("userInput").value = "";
-        step++; // Увеличиваем текущий шаг после каждого ответа
+        susget++;
     }
 </script>
 </body>
