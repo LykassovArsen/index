@@ -1,1 +1,125 @@
-<!DOCTYPE html> <html lang="en"> <head> <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0"> <title>Текстовая игра</title> <style> body { font-family: Arial, sans-serif; margin: 0; padding: 0; display: flex; justify-content: center; align-items: center; height: 100vh; background-color: black; color: white; } .game-container { text-align: center; } button { margin-top: 10px; } </style> </head> <body> <div class="game-container"> <div id="story"> <p>Вы стоите у входа в пещеру. Местные говорят, что всякий вошедший туда обретает неимоверную силу, но становится незримым для глаз. Отчаявшись вы входите в пещеру однако в ней царит мрак.</p> </div> <div id="options"> <p>1) Попытаться поискать глазами</p> <p>2) Попытаться на ощупь пробраться вглубь пещеры</p> <p>3) Вернуться обратно</p> <p>4) Побежать сломя голову</p> </div> <p id="question">Выберите действие: 1, 2, 3 или 4</p> <input type="text" id="userInput"> <button onclick="submitAnswer()">Ответить</button> <p id="result"></p> </div> <script> var susget = 1; function submitAnswer() { var input = document.getElementById("userInput").value; var result = document.getElementById("result"); var question = document.getElementById("question"); var options = document.getElementById("options"); var story = document.getElementById("story"); switch (susget) { case 1: switch (input) { case "1": story.innerHTML = "<p>Вы старательно вглядываетесь в темноту, однако ничего не видите.</p>"; break; case "2": story.innerHTML = "<p>Вы успешно пробираетесь все глубже и глубже. В тишине,  омрачаемой лишь вашим дыханием вы вдруг слышите шерох.</p>"; options.innerHTML = "<p>2.1: С криком побежать в другую сторону</p><p>2.2: Громко крикнуть: Кто там!</p>"; break; case "3": story.innerHTML = "<p>Вы возвращаетесь обратно и проживаете короткую непримечательную жизнь.</p>"; result.textContent = "КОНЕЦ ИГРЫ (перезагрузите страницу)"; break; case "4": story.innerHTML = "<p>Вы побежали вглубь пещеры и разбили голову на ближайшем повороте. Вы так и остались лежать там до конца времен.</p>"; result.textContent = "КОНЕЦ ИГРЫ (перезагрузите страницу)"; break; default: result.textContent = "Некорректный ввод. Пожалуйста, выберите действие от 1 до 4."; return; } break; case 2: switch (input) { case "1": story.innerHTML = "<p>Вы побежали вглубь пещеры и разбили голову на ближайшем повороте. Вы так и остались лежать там до конца времен.</p>"; result.textContent = "КОНЕЦ ИГРЫ (перезагрузите страницу)"; break; case "2": story.innerHTML = "<p>Вдруг, вы услышали нечеловеческий вопль отдаленно напоминавший человеческий и почувствовали как на вашей шее смыкаются чьи-то холодные руки.</p>"; options.innerHTML = "<p>2.2.1: Резко податься вперед</p><p>2.2.2: Резко податься вправо</p><p>2.2.3: Резко податься влево</p>"; break; default: result.textContent = "Некорректный ввод. Пожалуйста, выберите действие от 1 до 2."; return; } break; case 3: switch (input) { case "1": story.innerHTML = "<p>После того, как вы сделали резкий удар наугад в темноте, вы услышали громкий звук. В непроглядной тьме вы почувствовали, как что-то холодное и влажное схватило вас за руку. Вы испуганно отпрянули, но столкнулись лицом к лицу с чудовищным созданием из темноты.</p><p>Бездонные черные глаза смотрели на вас, и вы поняли, что ваш удар не нанес ему никакого вреда. Страх и отчаяние охватили вас, но в этом моменте вы решили воспользоваться последним шансом на спасение. С силой, о которой вы не подозревали, вы вырвались из его хватки и побежали, не оглядываясь.</p><p>Через несколько мгновений вы выбежали из пещеры, дыша свежим воздухом и ощущая, как паника постепенно отступает. Зайдя в деревню вы поняли, что вас уже никто не увидит ........</p>"; result.textContent = "ПОБЕДА!"; break; case "2": story.innerHTML = "<p>Не сумев убежать от противника, вы встретили свою смерть.</p>"; result.innerHTML = "<img src='https://i0.wp.com/archaeology.co.uk/wp-content/uploads/2020/02/The-recently-discovered-priestly-burial-at-Lincoln-Cathedral.jpg?resize=700%2C467&ssl=1' alt='Смерть'>"; break; case "3": story.innerHTML = "<p>Вы уперлись в стену и не смогли вырваться из мертвой хватки. Теперь вы еще один не вернувшийся.</p>"; result.textContent = "КОНЕЦ ИГРЫ (перезагрузите страницу)"; break; default: result.textContent = "Некорректный ввод. Пожалуйста, выберите действие от 1 до 3."; return; } break; default: result.textContent = "Игра закончена."; return; } question.textContent = "Выберите действие:"; document.getElementById("userInput").value = ""; susget++; } </script> </body> </html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Текстовая игра</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: black;
+        color: white;
+    }
+
+    .game-container {
+        text-align: center;
+    }
+
+    button {
+        margin-top: 10px;
+    }
+</style>
+</head>
+<body>
+
+<div class="game-container">
+    <div id="story">
+        <p>Вы стоите у входа в пещеру. Местные говорят, что всякий вошедший туда обретает неимоверную силу, но становится незримым для глаз. Отчаявшись вы входите в пещеру однако в ней царит мрак.</p>
+    </div>
+    <div id="options">
+        <p>1) Попытаться поискать глазами</p>
+        <p>2) Попытаться на ощупь пробраться вглубь пещеры</p>
+        <p>3) Вернуться обратно</p>
+        <p>4) Побежать сломя голову</p>
+    </div>
+    <p id="question">Выберите действие: 1, 2, 3 или 4</p>
+    <input type="text" id="userInput">
+    <button onclick="submitAnswer()">Ответить</button>
+    <p id="result"></p>
+</div>
+
+<script>
+    var susget = 1;
+
+    function submitAnswer() {
+        var input = document.getElementById("userInput").value;
+        var result = document.getElementById("result");
+        var question = document.getElementById("question");
+        var options = document.getElementById("options");
+        var story = document.getElementById("story");
+
+        switch (susget) {
+            case 1:
+                switch (input) {
+                    case "1":
+                        story.innerHTML = "<p>Вы старательно вглядываетесь в темноту, однако ничего не видите.</p>";
+                        break;
+                    case "2":
+                        story.innerHTML = "<p>Вы успешно пробираетесь все глубже и глубже. В тишине,  омрачаемой лишь вашим дыханием вы вдруг слышите шерох.</p>";
+                        options.innerHTML = "<p>2.1: С криком побежать в другую сторону</p><p>2.2: Громко крикнуть: Кто там!</p>";
+                        break;
+                    case "3":
+                        story.innerHTML = "<p>Вы возвращаетесь обратно и проживаете короткую непримечательную жизнь.</p>";
+                        result.textContent = "КОНЕЦ ИГРЫ (перезагрузите страницу)";
+                        break;
+                    case "4":
+                        story.innerHTML = "<p>Вы побежали вглубь пещеры и разбили голову на ближайшем повороте. Вы так и остались лежать там до конца времен.</p>";
+                        result.textContent = "КОНЕЦ ИГРЫ (перезагрузите страницу)";
+                        break;
+                    default:
+                        result.textContent = "Некорректный ввод. Пожалуйста, выберите действие от 1 до 4.";
+                        return;
+                }
+                break;
+            case 2:
+                switch (input) {
+                    case "1":
+                        story.innerHTML = "<p>Вы побежали вглубь пещеры и разбили голову на ближайшем повороте. Вы так и остались лежать там до конца времен.</p>";
+                        result.textContent = "КОНЕЦ ИГРЫ (перезагрузите страницу)";
+                        break;
+                    case "2":
+                        story.innerHTML = "<p>Вдруг, вы услышали нечеловеческий вопль отдаленно напоминавший человеческий и почувствовали как на вашей шее смыкаются чьи-то холодные руки.</p>";
+                        options.innerHTML = "<p>2.2.1: Резко податься вперед</p><p>2.2.2: Резко податься вправо</p><p>2.2.3: Резко податься влево</p>";
+                        break;
+                    default:
+                        result.textContent = "Некорректный ввод. Пожалуйста, выберите действие от 1 до 2.";
+                        return;
+                }
+                break;
+            case 3:
+                switch (input) {
+                    case "1":
+                        story.innerHTML = "<p>После того, как вы сделали резкий удар наугад в темноте, вы услышали громкий звук. В непроглядной тьме вы почувствовали, как что-то холодное и влажное схватило вас за руку. Вы испуганно отпрянули, но столкнулись лицом к лицу с чудовищным созданием из темноты.</p><p>Бездонные черные глаза смотрели на вас, и вы поняли, что ваш удар не нанес ему никакого вреда. Страх и отчаяние охватили вас, но в этом моменте вы решили воспользоваться последним шансом на спасение. С силой, о которой вы не подозревали, вы вырвались из его хватки и побежали, не оглядываясь.</p><p>Через несколько мгновений вы выбежали из пещеры, дыша свежим воздухом и ощущая, как паника постепенно отступает. Зайдя в деревню вы поняли, что вас уже никто не увидит ........</p>";
+                        result.textContent = "ПОБЕДА!";
+                        break;
+                    case "2":
+                        story.innerHTML = "<p>Не сумев убежать от противника, вы встретили свою смерть.</p>";
+                        result.textContent = "КОНЕЦ ИГРЫ (перезагрузите страницу)";
+                        break;
+                    case "3":
+                        story.innerHTML = "<p>Вы уперлись в стену и не смогли вырваться из мертвой хватки. Теперь вы еще один не вернувшийся.</p>";
+                        result.textContent = "КОНЕЦ ИГРЫ (перезагрузите страницу)";
+                        break;
+                    default:
+                        result.textContent = "Некорректный ввод. Пожалуйста, выберите действие от 1 до 3.";
+                        return;
+                }
+                break;
+            default:
+                result.textContent = "Игра закончена.";
+                return;
+        }
+
+        question.textContent = "Выберите действие:";
+        document.getElementById("userInput").value = "";
+        susget++;
+    }
+</script>
+</body>
+</html>
